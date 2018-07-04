@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+
+  <!-- If you want to create a dropdown list, based on an object or an array in AngularJS,
+  you should use the ng-options directive. You can also use the ng-repeat directive
+  to make the same dropdown list with the option tag, like this:
+  <select>
+    <option ng-repeat="x in names">{{x}}</option>
+  </select>
+  Because the ng-repeat directive repeats a block of HTML code for each item in an array,
+  it can be used to create options in a dropdown list, but the ng-options directive was
+  made especially for filling a dropdown list with options, and has at least one important advantage:
+  dropdowns made with ng-options allows the selected value to be an object, while dropdowns made
+  from ng-repeat has to be a string. -->
+
+
+  <body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+      <p>When you use the ng-options directive to create dropdown lists, the selected value can be an object.</p>
+      <p>In this example you can display both the model and the color of the selected element.</p>
+      <p>Select a car:</p>
+      <select ng-model="selectedCar" ng-options="x.model for x in cars">
+      </select>
+      <h1>You selected: {{selectedCar.model}}</h1>
+      <p>Its color is: {{selectedCar.color}}</p>
+    </div>
+    <script>
+      let app = angular.module('myApp', []);
+      app.controller('myCtrl', function($scope) {
+          $scope.cars = [
+              {model : "Ford Mustang", color : "red"},
+              {model : "Fiat 500", color : "white"},
+              {model : "Volvo XC90", color : "black"}
+          ];
+      });
+    </script>
+  </body>
+</html>

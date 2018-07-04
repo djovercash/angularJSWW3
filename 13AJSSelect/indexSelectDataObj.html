@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+
+  <!-- Using an object as the data source, x represents the key, and y represents the value -->
+  <!-- The selected value will always be the value in a key-value pair -->
+  
+
+  <body>
+    <p>This example demonstrates the use of an object as the data source when creating a dropdown list.</p>
+    <div ng-app="myApp" ng-controller="myCtrl">
+      <p>Select a car:</p>
+      <select ng-model="selectedCar" ng-options="x for (x, y) in cars">
+      </select>
+      <h1>You selected: {{selectedCar}}</h1>
+    </div>
+    <script>
+      let app = angular.module('myApp', []);
+      app.controller('myCtrl', function($scope) {
+          $scope.cars = {
+              car01 : "Ford",
+              car02 : "Fiat",
+              car03 : "Volvo"
+          }
+      });
+      console.log(selectedCar)
+    </script>
+  </body>
+</html>
