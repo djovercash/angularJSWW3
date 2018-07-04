@@ -20,7 +20,7 @@
       var app = angular.module('myApp', []);
       app.filter('myFormat', function() {
           return function(x) {
-              var i, c, txt = "";
+              let i, c, txt = "";
               for (i = 0; i < x.length; i++) {
                   c = x[i];
                   if (i % 2 == 0) {
