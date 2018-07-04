@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+
+<!-- Data binding in AngularJS is the synchronization between the model and the view.
+AngularJS applications usually have a data model. The data model is a collection
+of data available for the application (line 27 through line 30).
+
+The HTML container where the AngularJS application is displayed, is called the view.
+The view has access to the model, and there are several ways of displaying model data in the view.
+You can use the ng-bind directive, which will bind the innerHTML of the element to the specified model property.
+You can also use double braces {{ }} to display content from the model.
+Or you can use the ng-model directive (input, select, textarea) on HTML controls to bind the model to the view.
+NOTE: The ng-model directive provides a two-way binding between the model and the view. -->
+
+
+<body>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+    <p ng-bind="firstname"></p>
+    <p>First Name: {{firstname}}</p>
+    <input ng-model="firstname">
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.firstname = "John";
+    $scope.lastname = "Doe";
+});
+</script>
+
+</body>
+</html>
