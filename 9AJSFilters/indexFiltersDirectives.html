@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <body>
+
+    <div ng-app="myApp"/>
+
+      <div ng-controller="namesCtrl">
+        <p>Looping with objects using orderBy:</p>
+        <ul>
+          <li ng-repeat="x in names | orderBy:'country'">
+            {{ x.name + ', ' + x.country }}
+          </li>
+        </ul>
+      </div>
+
+      <div ng-controller="costCtrl">
+        <p>Changin number to currency:</p>
+        <h1>Price: {{ price | currency }}</h1>
+      </div>
+
+    </div>
+
+    <script>
+      let app = angular.module("myApp", [])
+      app.controller('namesCtrl', function($scope) {
+          $scope.names = [
+              {name:'Jani',country:'Norway'},
+              {name:'Carl',country:'Sweden'},
+              {name:'Margareth',country:'England'},
+              {name:'Hege',country:'Norway'},
+              {name:'Joe',country:'Denmark'},
+              {name:'Gustav',country:'Sweden'},
+              {name:'Birgit',country:'Denmark'},
+              {name:'Mary',country:'England'},
+              {name:'Kai',country:'Norway'}
+              ];
+      });
+
+      app.controller('costCtrl', function($scope) {
+          $scope.price = 58;
+      });
+    </script>
+
+  </body>
+</html>
