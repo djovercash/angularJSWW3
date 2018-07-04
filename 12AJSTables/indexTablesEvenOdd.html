@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    table, th, td  {
+      border: 1px solid grey;
+      border-collapse: collapse;
+      padding: 5px;
+    }
+    th {
+      background-color: #000000;
+      color: #FFD700
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <body>
+    <div ng-app="myApp" ng-controller="customersCtrl">
+      <table>
+        <tr>
+          <th>NAME</th>
+          <th>COUNTRY</th>
+        </tr>
+        <tr ng-repeat="x in names">
+          <td ng-if="$odd" style="background-color:#F1F1F1">
+          {{ x.Name }}</td>
+          <td ng-if="$even">
+          {{ x.Name }}</td>
+          <td ng-if="$odd" style="background-color:#F1F1F1">
+          {{ x.Country | uppercase }}</td>
+          <td ng-if="$even">
+          {{ x.Country | uppercase }}</td>
+        </tr>
+      </table>
+    </div>
+    <script>
+      let app = angular.module('myApp', []);
+      let url = "https://www.w3schools.com/angular/customers.php"
+      app.controller('customersCtrl', function($scope, $http) {
+          $http.get(url)
+          .then(function (response) {$scope.names = response.data.records;});
+      });
+    </script>
+  </body>
+</html>
