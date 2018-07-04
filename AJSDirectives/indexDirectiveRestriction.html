@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<!-- You can restrict your directives to only be invoked by some of the methods.
+By adding a restrict property with the value "A", the directive can only be invoked by attributes.
+The legal restrict values are:
+  - E for Element name
+  - A for Attribute
+  - C for Class
+  - M for Comment
+By default the value is EA, meaning that both Element names and attribute names can invoke the directive. -->
+
+
+<body ng-app="myApp">
+
+<p>Element:</p>
+<new-directive></new-directive>
+
+<p>Attribute:</p>
+<div new-directive></div>
+
+<p>Class:</p>
+<div class="new-directive"></div>
+
+<p>Comment:</p>
+<!-- directive: new-directive -->
+
+<script>
+var app = angular.module("myApp", []);
+app.directive("newDirective", function() {
+    return {
+        restrict : "A",
+        template : "<h1>Made by a directive!</h1>"
+    };
+});
+</script>
+
+<p><strong>Note:</strong> By setting the <strong>restrict</strong>
+  property to "A", only the HTML element with the "new-directive"
+  attribute has invoked the directive.</p>
+
+</body>
+</html>

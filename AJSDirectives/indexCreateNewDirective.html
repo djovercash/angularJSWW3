@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<!-- In addition to all the built-in AngularJS directives, you can create your own directives.
+New directives are created by using the .directive function.
+To invoke the new directive, make an HTML element with the same tag name as the new directive.
+When naming a directive, you must use a camel case name, newDirective,
+BUT when invoking it, you must use - separated name, new-directive: -->
+
+<body ng-app="myApp">
+
+<new-directive></newDirective-directive>
+
+<script>
+var app = angular.module("myApp", []);
+app.directive("newDirective", function() {
+    return {
+        template : "<h1>Made by a directive!</h1>"
+    };
+});
+</script>
+
+</body>
+</html>
+
+<!-- You can invoke a directive by using:
+  - Element name: <new-directive></new-directive>
+  - Attribute: <div new-directive></div>
+  - Class: <div class="new-directive"></div>
+  - Comment: <!-- directive: new-directive --> -->

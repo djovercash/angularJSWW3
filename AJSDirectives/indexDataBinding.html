@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+<!-- Data binding in AngularJS binds AngularJS expressions with AngularJS data.
+{{ quantity }} is bound with ng-model="quantity".
+Below, the two text fields are bound together with two ng-model directives.
+NOTE: Using ng-init is not very common. See section on controllers-->
+
+<div data-ng-app="" data-ng-init="quantity=1;price=5">
+
+<h2>Cost Calculator</h2>
+
+Quantity: <input type="number" ng-model="quantity">
+Price: <input type="number" ng-model="price">
+
+<p><b>Total in dollar:</b> {{quantity * price}}</p>
+
+</div>
+
+</body>
+</html>
