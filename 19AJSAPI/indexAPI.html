@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+
+  API stands for Application Programming Interface.
+  The AngularJS Global API is a set of global JavaScript functions for performing common tasks like:
+    - Comparing objects
+    - Iterating objects
+    - Converting data
+
+  The Global API functions are accessed using the angular object.
+  <body>
+
+    <div ng-app="myApp" ng-controller="myCtrl">
+      <p>To lowercase:</p>
+      <p>{{ x1 }}</p>
+      <p>{{ x2 }}</p>
+
+      <p>To uppercase:</p>
+      <p>{{ x3 }}</p>
+      <p>{{ x4 }}</p>
+
+      <p>Is it a string?</p>
+      <p>{{ x5 }}</p>
+      <p>{{ x6 }}</p>
+
+      <p>Is it a number?</p>
+      <p>{{ x7 }}</p>
+      <p>{{ x8 }}</p>
+    </div>
+
+    <script>
+      let app = angular.module('myApp', []);
+      app.controller('myCtrl', function($scope) {
+          $scope.x1 = "JOHN";
+          $scope.x2 = angular.lowercase($scope.x1);
+          $scope.x3 = "drew";
+          $scope.x4 = angular.uppercase($scope.x3);
+          $scope.x5 = "Paul";
+          $scope.x6 = angular.isString($scope.x5);
+          $scope.x7 = "Sheila";
+          $scope.x8 = angular.isNumber($scope.x8)
+      });
+    </script>
+
+  </body>
+</html>
